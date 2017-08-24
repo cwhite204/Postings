@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, :except => [:index]
+  before_action :authenticate_user!, :except => [:index, :show]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /posts
   # GET /posts.json
@@ -20,7 +21,6 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
-    authorize @post
   end
 
   # POST /posts
@@ -28,8 +28,6 @@ class PostsController < ApplicationController
   def create
       @post = Post.new(post_params)
       @post.user_id = current_user.id
-
-      authorize @post
 
       respond_to do |format|
         if @post.save
@@ -59,7 +57,6 @@ class PostsController < ApplicationController
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy
-    authorize @post
     @post.destroy
     respond_to do |format|
       format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }

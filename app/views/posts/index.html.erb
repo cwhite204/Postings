@@ -19,10 +19,10 @@
       <tr>
         <td><%= post.body %></td>
         <td><%= link_to 'Show', post %></td>
-        <% #if current_user == post.user %>
+        <% if user_signed_in? %>
           <td><%= link_to 'Edit', edit_post_path(post) %></td>
           <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% #end %>
+        <% end %>
       </tr>
   </tbody>
   <% end %>
