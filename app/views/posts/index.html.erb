@@ -1,33 +1,22 @@
-<p id="notice"><%= notice %></p>
+<p id="notice"><%= notice %></p>s
 
-
-<% if current_user %>
-  <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
-<% end %>
-<h1>Posts</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Body</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.body %></td>
-        <td><%= link_to 'Show', post %></td>
-        <% if user_signed_in? %>
-          <td><%= link_to 'Edit', edit_post_path(post) %></td>
-          <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </tr>
-  </tbody>
+<div class="posts-wrapper row">
+  <h2>Posts</h2>
+  <% @posts.each do |post| %>
+    <div class="post">
+      <div class="post-head">
+        <div class="name">
+          <%= post.user.user_name %>
+        </div>
+      </div>
+      <p class="caption">
+        <%= post.body %>
+      </p>
+    </div>
   <% end %>
-</table>
+</div>
 
 <br>
-
-<%= link_to 'New Post', new_post_path %>
+<div class="posts-wrapper">
+  <%= button_to 'New Post', new_post_path, class: 'btn btn-info' %>
+</div>
