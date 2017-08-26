@@ -1,7 +1,7 @@
-<p id="notice"><%= notice %></p>s
-
 <div class="posts-wrapper row">
-  <h2>Posts</h2>
+  <div class="post-heading">
+    <h2>Posts</h2>
+  </div>
   <% @posts.each do |post| %>
     <div class="post">
       <div class="post-head">
@@ -15,6 +15,7 @@
     </div>
   <% end %>
 </div>
+
 
 <br>
 <div class="posts-wrapper">

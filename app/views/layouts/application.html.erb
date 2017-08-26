@@ -5,12 +5,17 @@
 
     <title>Postings</title>
 
-    <%= stylesheet_link_tag    "application" %>
+    <%= stylesheet_link_tag "application" %>
     <%= csrf_meta_tags %>
   </head>
 
   <body>
     <%= render 'layouts/navbar' %>
-    <%= yield %>
+    <div class="wrap">
+      <% if notice %>
+        <p class="alert alert-success" id="notice" ><%= notice %></p>
+      <% end %>
+      <%= yield %>
+    </div>
   </body>
 </html>
