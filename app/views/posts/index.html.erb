@@ -1,23 +1,5 @@
-<div class="posts-wrapper row">
-  <div class="post-heading">
-    <h2>Posts</h2>
-  </div>
-  <% @posts.each do |post| %>
-    <div class="post">
-      <div class="post-head">
-        <div class="name">
-          <%= post.user.user_name %>
-        </div>
-      </div>
-      <p class="caption">
-        <%= post.body %>
-      </p>
-    </div>
-  <% end %>
-</div>
+<%= render 'posts/post' %>
 
-
-<br>
 <div class="posts-wrapper">
   <%= link_to 'New Post', new_post_path, class: 'btn btn-info' %>
 </div>
