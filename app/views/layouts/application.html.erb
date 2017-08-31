@@ -6,6 +6,7 @@
     <title>Postings</title>
 
     <%= stylesheet_link_tag "application" %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true  %>
     <%= csrf_meta_tags %>
   </head>
 
@@ -14,6 +15,8 @@
     <div class="wrap">
       <% if notice %>
         <p class="alert alert-success" id="notice" ><%= notice %></p>
+      <% elsif alert %>
+        <p class="alert alert-danger"><%= alert %></p>
       <% end %>
       <%= yield %>
     </div>

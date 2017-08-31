@@ -6,19 +6,15 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.all.paginate(page: params[:page], per_page: 5)
+    @post = Post.new
   end
 
   # GET /posts/1
   # GET /posts/1.json
   def show
   end
-
-  # GET /posts/new
-  def new
-    @post = Post.new
-  end
-
+  
   # GET /posts/1/edit
   def edit
   end
@@ -31,10 +27,10 @@ class PostsController < ApplicationController
 
       respond_to do |format|
         if @post.save
-          format.html { redirect_to @post, notice: 'Post was successfully created.' }
-          format.json { render :show, status: :created, location: @post }
+          format.html { redirect_to posts_path, notice: 'Post was successfully created.' }
+          format.json { render :index, status: :created, location: @post }
         else
-          format.html { render :new }
+          format.html { redirect_to posts_path, alert: 'Error when creating post' }
           format.json { render json: @post.errors, status: :unprocessable_entity }
         end
       end
@@ -63,6 +59,19 @@ class PostsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def upvote
+    @post = Post.find(params[:id])
+    @post.upvote_by current_user
+    redirect_to posts_path
+  end
+  
+  def downvote
+    @post = Post.find(params[:id])
+    @post.downvote_by current_user
+    redirect_to posts_path
+  end
+  
 
   private
     # Use callbacks to share common setup or constraints between actions.

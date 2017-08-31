@@ -1,5 +1,7 @@
-<%= render 'posts/post' %>
+<%= render 'post' %>
 
-<div class="posts-wrapper">
-  <%= link_to 'New Post', new_post_path, class: 'btn btn-info' %>
-</div>
+<% if current_user %>    
+  <%= render 'posts/new', locals: { post: @post } %>
+ <% else %>
+  <p>Log in to create a new post.</p>
+<% end %>

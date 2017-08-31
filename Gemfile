@@ -5,9 +5,13 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'acts_as_votable', '~> 0.10.0'
 gem 'rolify'
 gem 'cancancan', '~> 2.0'
 gem 'devise'
+gem 'bootstrap_form'
+gem 'will_paginate', '~> 3.1.0'
+
 
 gem 'jquery-rails'
 
