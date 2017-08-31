@@ -15,6 +15,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "rails_bootstrap_forms";
+@import "posts";
 
 body {
   background-color: #fafafa;
@@ -38,41 +39,6 @@ body {
 .navbar-container {
   width: 640px;
   margin: 0 auto;
-}
-
-.posts-wrapper {
-  padding-top: 10px;
-  margin: 0 auto;
-  max-width: 642px;
-  width: 100%;
-}
-
-.post {
-  background-color: #fff;
-  border-color: #edeeee;
-  border-style: solid;
-  border-radius: 3px;
-  border-width: 1px;
-  margin-bottom: 20px;
-}
-
-.post-head {
-  height: 64px;
-  padding: 14px 20px;
-  color: #125688;
-  font-size: 15px;
-  line-height: 18px;
-  .thumbnail {}
-  .name {
-    display: block;
-  }
-}
-
-.caption {
-  padding: 0px 20px;
-  font-size: 15px;
-  line-height: 18px;
-
 }
 
 .form-wrapper {

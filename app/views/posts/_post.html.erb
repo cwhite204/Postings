@@ -2,17 +2,27 @@
   <% @posts.each do |post| %>
     <div class="posts-wrapper row">
       <div class="post">
-        <div class="post-head">
-          <div class="name">
-            <%= post.user.user_name %>
-          </div>
-        </div>
-        <p class="caption">
-          <%= post.body %>
-        </p>
-        <%= link_to "upvote", like_post_path(post), method: :put %>
-        <%= link_to "downvote", dislike_post_path(post), method: :put %>
-        <%= post.score %>
+        <table>
+          <tr>
+            <td width=70%>
+            <div class="post-head">
+              <div class="name">
+                <%= post.user.user_name %>
+              </div>
+            </div>
+            <p class="caption">
+              <%= post.body %>
+            </p>
+            </td>
+            <td width=5%>
+              <ul id="like-dislike-block">
+                <li><%= link_to "", like_post_path(post), method: :put, class: "glyphicon glyphicon-arrow-up" %></li>
+                <li><%= post.score %></li>
+                <li><%= link_to "", dislike_post_path(post), method: :put, class: "glyphicon glyphicon-arrow-down" %></li>
+              </ul>
+            </td>
+          </tr>
+        </table>
       </div>
     </div>
   <% end %>
