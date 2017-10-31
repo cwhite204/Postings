@@ -1,24 +1,13 @@
-# README
+# Postings
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A Web App that can be used to post messages which can be upvoted and downvoted by other users.
 
-Things you may want to cover:
+* Ruby version = 2.4.0
+* Rails version = 5.1.3
 
-* Ruby version
+* Run 'bundle install' to install the necessary gems which are in the gemfile
 
-* System dependencies
+* Run 'rake db:migrate' to create the database that will be used
+by the web app
 
-* Configuration
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
